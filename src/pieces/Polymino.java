@@ -59,8 +59,12 @@ class Polymino
     
     this.color = color;
     this.mainNode = mainNode;
+    color.setColor(color);
     for(int i = 0; i < size - 1 ; i++)
+    {
       this.relatives[i] = relatives[i];
+      this.relatives[i].setColor(color);
+    }
     isFixed = false;
     this.size = size;
     lastAction = 0;
@@ -69,14 +73,44 @@ class Polymino
   //getters
   
   //setters
+  void setFixed(){
+  	isFixed = true;
+  }
   
   //methods
-  public boolean move( int x, int y, int z){return false;} //TODO
+  public void move( int x, int y, int z){
+  	mainNode.setX(x);
+  	mainNode.setX(y);
+  	mainNode.setX(z);
+  	oldMainLocation = new Node (x,y,z);
+  	lastAction = 0;
+  	} 
   
   
-  public boolean rotate(){return false;} //TODO
+  public void rotate( numOfRotation ){
+  	numOfRotation = numOfRotation % 4;
+  	lastAction = numOfRotation;
+  	int tempCoor;
+  	for(int i = 0; i < size - 1 ; i++)
+    {
+      tempCoor = relatives[i].getX();	
+      relatives[i].setX( relatives[i].getY() );
+      relatives[i].setY( - tempCoor ); 
+    }
+  } 
   
   
-  public boolean flip(){return false;} //TODO
+  public void flip( int numOfFlip){
+  	numOfFlip = numOfFlip % 4;
+  	lastAction = 4 * numOfFlip ;
+  	} //TODO
+  
+  public void restoreOld()
+  {
+  	if(!lastAction) mainNode = oldMainNode;
+  	else if( lastAction % 4 ==0 ) flip( lastAction / 4 );
+  	else rotate ( lastAction );
+  	lastAction = 0;
+  }
   
 }
