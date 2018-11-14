@@ -86,4 +86,9 @@ public boolean isDiagNeigbor( Node neig )
   return Math.abs(x - neig.x) == 1 && Math.abs(y - neig.y) == 1 && Math.abs(z - neig.z) == 1 ;
 }
 
+public boolean equalsTo( Node other)
+{
+	return x == other.x && y == other.y && z == other.z;
+}
+
 }

@@ -59,7 +59,7 @@ class Polymino
     
     this.color = color;
     this.mainNode = mainNode;
-    color.setColor(color);
+    this.mainNode.setColor(color);
     for(int i = 0; i < size - 1 ; i++)
     {
       this.relatives[i] = relatives[i];
@@ -70,30 +70,58 @@ class Polymino
     lastAction = 0;
     oldMainLocation = mainNode;
   }
+  
+  public Polymino( Polymino pl )
+  {
+   size  = pl.size;
+    color = pl.color;
+    isFixed = pl.isFixed;
+    mainNode = pl.mainNode;
+    for(int i = 0; i < size - 1 ; i++)
+    {
+      relatives[i] = pl.relatives[i];
+   }
+    isValid = pl.isValid; 
+    diag = pl.diag;
+    lastAction = pl.lastAction;
+    oldMainLocation = pl.oldMainLocation;
+  }
   //getters
+  boolean getValidity()
+  {
+   return isValid;
+  }
   
   //setters
   void setFixed(){
-  	isFixed = true;
+   isFixed = true;
   }
-  
+  void setColor( int color)
+  {
+     this.color = color;
+     this.mainNode.setColor(color);
+     for(int i = 0; i < size - 1 ; i++)
+     {
+       relatives[i].setColor(color);
+     }
+  }
   //methods
   public void move( int x, int y, int z){
-  	mainNode.setX(x);
-  	mainNode.setX(y);
-  	mainNode.setX(z);
-  	oldMainLocation = new Node (x,y,z);
-  	lastAction = 0;
-  	} 
+   mainNode.setX(x);
+   mainNode.setX(y);
+   mainNode.setX(z);
+   oldMainLocation = new Node (x,y,z);
+   lastAction = 0;
+   } 
   
   
-  public void rotate( numOfRotation ){
-  	numOfRotation = numOfRotation % 4;
-  	lastAction = numOfRotation;
-  	int tempCoor;
-  	for(int i = 0; i < size - 1 ; i++)
+  public void rotate( int numOfRotation ){
+   numOfRotation = numOfRotation % 4;
+   lastAction = numOfRotation;
+   int tempCoor;
+   for(int i = 0; i < size - 1 ; i++)
     {
-      tempCoor = relatives[i].getX();	
+      tempCoor = relatives[i].getX(); 
       relatives[i].setX( relatives[i].getY() );
       relatives[i].setY( - tempCoor ); 
     }
@@ -101,16 +129,31 @@ class Polymino
   
   
   public void flip( int numOfFlip){
-  	numOfFlip = numOfFlip % 4;
-  	lastAction = 4 * numOfFlip ;
-  	} //TODO
+   numOfFlip = numOfFlip % 4;
+   lastAction = 4 * numOfFlip ;
+   int tempx, tempy, tempz;
+   for(int i = 0; i < size - 1 ; i++)
+    {
+      tempx = relatives[i].getX();
+      tempy = relatives[i].getY();
+      tempz = relatives[i].getZ();
+      relatives[i].setX( tempy/2 + tempx/2 + tempz );
+      relatives[i].setY( tempy/2 - tempx/2 - tempz  ); 
+      relatives[i].setZ( tempy  - tempx ); 
+    }
+   } 
   
   public void restoreOld()
   {
-  	if(!lastAction) mainNode = oldMainNode;
-  	else if( lastAction % 4 ==0 ) flip( lastAction / 4 );
-  	else rotate ( lastAction );
-  	lastAction = 0;
+   if(lastAction == 0) mainNode = oldMainLocation;
+   else if( lastAction % 4 ==0 ) flip( lastAction / 4 );
+   else rotate ( lastAction );
+   lastAction = 0;
   }
+  
+  public boolean equalsTo( Polymino pl )
+  {
+   return false;
+  }//TODO
   
 }
