@@ -160,7 +160,7 @@ public static final int DEPTH = 10;
            break;
         }
         
-        if( map[ n.getX() + n.getY() * HEIGHT + n.getZ() * HEIGHT * WIDTH].getColor() < 0 &&
+        if( map[ n.getX() + n.getY() * HEIGHT + n.getZ() * HEIGHT * WIDTH].getColor() >= 0 &&
            map[ n.getX() + n.getY() * HEIGHT + n.getZ() * HEIGHT * WIDTH].getColor() != n.getColor())
            succesful = false;
         
@@ -195,7 +195,7 @@ public static final int DEPTH = 10;
            break;
         }
         
-        if( map[ n.getX() + n.getY() * HEIGHT + n.getZ() * HEIGHT * WIDTH].getColor() < 0 &&
+        if( map[ n.getX() + n.getY() * HEIGHT + n.getZ() * HEIGHT * WIDTH].getColor() >= 0 &&
            map[ n.getX() + n.getY() * HEIGHT + n.getZ() * HEIGHT * WIDTH].getColor() != n.getColor())
            succesful = false;
       }
