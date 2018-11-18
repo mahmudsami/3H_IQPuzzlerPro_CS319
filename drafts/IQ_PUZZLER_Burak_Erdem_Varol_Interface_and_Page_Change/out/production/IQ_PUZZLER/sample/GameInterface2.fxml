@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: red;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <Label text="Level X" GridPane.columnIndex="17" GridPane.rowIndex="7" />
+        <Ellipse fill="DODGERBLUE" radiusX="20.0" radiusY="21.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="7" />
+        <Label text="0:25" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" stroke="BLACK" strokeType="INSIDE" width="29.0" GridPane.columnIndex="32" GridPane.rowIndex="7" />
+        <Circle fill="AQUA" layoutX="397.0" layoutY="309.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="17" />
+        <Circle fill="AQUA" layoutX="408.0" layoutY="304.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="17" />
+        <Circle layoutX="408.0" layoutY="304.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.rowIndex="17" />
+        <Circle layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.rowIndex="17" />
+        <Circle fill="AQUA" layoutX="408.0" layoutY="304.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="20" />
+        <Circle fill="AQUA" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="20" />
+        <Circle layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.rowIndex="20" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.rowIndex="20" />
+        <Circle fill="#1490ff" layoutX="408.0" layoutY="304.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="24" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="24" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.rowIndex="24" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.rowIndex="24" />
+        <Circle layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="17" GridPane.rowIndex="17" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="17" GridPane.rowIndex="20" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="20" GridPane.rowIndex="17" />
+        <Circle fill="DODGERBLUE" layoutX="408.0" layoutY="304.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="23" GridPane.rowIndex="17" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="26" GridPane.rowIndex="17" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="20" GridPane.rowIndex="20" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="28" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="23" GridPane.rowIndex="20" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="26" GridPane.rowIndex="20" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="23" GridPane.rowIndex="24" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="28" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.rowIndex="28" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.rowIndex="28" />
+        <Circle layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="20" GridPane.rowIndex="28" />
+        <Circle fill="LIME" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="LIME" strokeType="INSIDE" GridPane.columnIndex="23" GridPane.rowIndex="28" />
+        <Circle fill="LIME" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="26" GridPane.rowIndex="24" />
+        <Circle fill="DODGERBLUE" layoutX="328.0" layoutY="103.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="29" GridPane.rowIndex="17" />
+        <Circle fill="LIME" radius="13.0" stroke="LIME" strokeType="INSIDE" GridPane.columnIndex="29" GridPane.rowIndex="24" />
+        <Circle fill="LIME" radius="13.0" stroke="LIME" strokeType="INSIDE" GridPane.columnIndex="26" GridPane.rowIndex="28" />
+        <Circle fill="LIME" radius="13.0" stroke="LIME" strokeType="INSIDE" GridPane.columnIndex="29" GridPane.rowIndex="28" />
+        <Circle fill="LIME" layoutX="760.0" layoutY="372.0" radius="13.0" stroke="LIME" strokeType="INSIDE" GridPane.columnIndex="29" GridPane.rowIndex="20" />
+        <Label layoutX="226.0" layoutY="58.0" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+        <Circle fill="WHITE" layoutX="238.0" layoutY="260.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="20" GridPane.rowIndex="39" />
+        <Circle fill="WHITE" layoutX="294.0" layoutY="260.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="23" GridPane.rowIndex="41" />
+        <Circle fill="MAGENTA" layoutX="350.0" layoutY="260.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="39" />
+        <Circle fill="WHITE" layoutX="238.0" layoutY="316.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="23" GridPane.rowIndex="39" />
+        <Circle fill="MAGENTA" layoutX="294.0" layoutY="316.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.rowIndex="39" />
+        <Circle fill="MAGENTA" layoutX="406.0" layoutY="316.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="41" />
+        <Circle fill="MAGENTA" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.rowIndex="39" />
+        <Circle fill="DODGERBLUE" layoutX="238.0" layoutY="400.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="17" GridPane.rowIndex="28" />
+        <Circle layoutX="158.0" layoutY="23.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="20" GridPane.rowIndex="24" />
+        <Circle layoutX="158.0" layoutY="23.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="17" GridPane.rowIndex="24" />
+    </children>
+</GridPane>

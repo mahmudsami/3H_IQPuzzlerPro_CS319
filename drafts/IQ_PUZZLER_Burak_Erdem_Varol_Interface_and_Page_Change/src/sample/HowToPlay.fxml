@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: red;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <Button mnemonicParsing="false" onAction="#mainButtonAction" prefHeight="25.0" prefWidth="158.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="24" />
+        <Button layoutX="340.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Play" GridPane.columnIndex="8" GridPane.rowIndex="24" />
+        <Label text="How To Play" GridPane.columnIndex="3">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <TextArea prefHeight="77.0" prefWidth="475.0" text="With the help olf control keys,try to place figures on the board logically and fill all the  holes.There is only one right solution.Try to find that." wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+    </children>
+</GridPane>

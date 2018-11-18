@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+
+<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Resume" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Restart" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Settings" GridPane.columnIndex="4" GridPane.rowIndex="15" />
+        <Button mnemonicParsing="false" onAction="#mainButtonAction" prefHeight="25.0" prefWidth="118.0" text="Main Menu" GridPane.columnIndex="4" GridPane.rowIndex="16" />
+        <Button mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="25.0" prefWidth="120.0" text="Quit" GridPane.columnIndex="4" GridPane.rowIndex="18" />
+        <Circle fill="DODGERBLUE" radius="23.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+    </children>
+</GridPane>
