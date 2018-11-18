@@ -1,4 +1,7 @@
 package demo;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.Color;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -16,7 +19,7 @@ import javax.swing.JRadioButton;
 import java.awt.Color;
 
 public class demo_frame extends JFrame {
-
+	int color = 0;
 	private JPanel contentPane;
 
 	/**
@@ -221,6 +224,12 @@ public class demo_frame extends JFrame {
 		JButton btnNewButton_54 = new JButton("");
 		panel.add(btnNewButton_54);
 		
+		
+		
+		/**
+		 *  Panel 1 created to keep radio buttons 
+		 */
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(721, 161, 407, 319);
 		contentPane.add(panel_1);
@@ -277,6 +286,27 @@ public class demo_frame extends JFrame {
 		rdbtnNewRadioButton_3.setBackground(Color.BLUE);
 		panel_1.add(rdbtnNewRadioButton_3);
 		
+		
+		ButtonGroup rdbg =new ButtonGroup();
+		rdbg.add(rdbtnNewRadioButton);
+		rdbg.add(rdbtnNewRadioButton_1);
+		rdbg.add(rdbtnNewRadioButton_2);
+		rdbg.add(rdbtnNewRadioButton_3);
+		rdbg.add(rdbtnNewRadioButton_4);
+		rdbg.add(rdbtnNewRadioButton_5);
+		rdbg.add(rdbtnNewRadioButton_6);
+		rdbg.add(rdbtnNewRadioButton_7);
+		rdbg.add(rdbtnNewRadioButton_8);
+		rdbg.add(rdbtnNewRadioButton_9);
+		rdbg.add(rdbtnNewRadioButton_10);
+		rdbg.add(rdbtnNewRadioButton_11);
+		
+		
+		
+		/**
+		 *  Panel 2 created to keep options
+		 */
+		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(352, 28, 414, 42);
 		contentPane.add(panel_2);
@@ -296,6 +326,174 @@ public class demo_frame extends JFrame {
 		contentPane.add(btnCheck);
 		
 		
+		/**
+		 *  Action listener created in order to paint buttons 
+		 *  according to chosen radio button
+		 */
+		
+		
+		// action listener for radio button
+		
+		ActionListener radioButtonListener = new ActionListener()
+		{
+		    @Override
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	
+		    	if (e.getSource() == rdbtnNewRadioButton) {
+		    		color = 0;  // black
+		    		System.out.println(color);
+		    	}
+		    	if (e.getSource() == rdbtnNewRadioButton_1) {
+		    		color = 1; 	// red
+		    		System.out.println(color);
+		    	}
+		    	if (e.getSource() == rdbtnNewRadioButton_2) {
+		    		color = 2;	// light gray
+		    		System.out.println(color);
+		    	}
+		    	if (e.getSource() == rdbtnNewRadioButton_3) {
+		    		color = 3;	// blue
+		    		System.out.println(color);
+		    	}
+		    	if (e.getSource() == rdbtnNewRadioButton_4) {
+		    		color = 4;	// yellow
+		    		System.out.println(color);
+		    	}
+		    	if (e.getSource() == rdbtnNewRadioButton_5)
+		    		color = 5;	// green
+		    	if (e.getSource() == rdbtnNewRadioButton_6)
+		    		color = 6;	// pink
+		    	if (e.getSource() == rdbtnNewRadioButton_7)
+		    		color = 7;	// cyan
+		    	if (e.getSource() == rdbtnNewRadioButton_8)
+		    		color = 8;	// orange
+		    	if (e.getSource() == rdbtnNewRadioButton_9)
+		    		color = 9;	// magenta
+		    	if (e.getSource() == rdbtnNewRadioButton_10)
+		    		color = 10;	//white 
+		    	if (e.getSource() == rdbtnNewRadioButton_11)
+		    		color = 11;	//dark gray
+		    	
+		    }
+		};
+		
+		
+		
+		rdbtnNewRadioButton.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_1.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_2.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_3.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_4.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_5.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_6.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_7.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_8.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_9.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_10.addActionListener( radioButtonListener );
+		rdbtnNewRadioButton_11.addActionListener( radioButtonListener );
+		
+		
+		ActionListener buttonListener =new ActionListener()
+		{
+		    @Override
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	JButton buttonlistened = (JButton ) e.getSource();
+		    	System.out.println(buttonlistened);
+		    	if(color==0)
+		    		buttonlistened.setBackground(Color.BLACK);
+		    	if(color==1)
+		    		buttonlistened.setBackground(Color.RED);
+		    	if(color==2)
+		    		buttonlistened.setBackground(Color.LIGHT_GRAY);
+		    	if(color==3)
+		    		buttonlistened.setBackground(Color.BLUE);
+		    	if(color==4)
+		    		buttonlistened.setBackground(Color.YELLOW);
+		    	if(color==5)
+		    		buttonlistened.setBackground(Color.GREEN);
+		    	if(color==6)
+		    		buttonlistened.setBackground(Color.PINK);
+		    	if(color==7)
+		    		buttonlistened.setBackground(Color.CYAN);
+		    	if(color==8)
+		    		buttonlistened.setBackground(Color.ORANGE);
+		    	if(color==9)
+		    		buttonlistened.setBackground(Color.MAGENTA);
+		    	if(color==10)
+		    		buttonlistened.setBackground(Color.WHITE);
+		    	if(color==11)
+		    		buttonlistened.setBackground(Color.DARK_GRAY);
+		    	
+		    }
+		};
+		
+		btnNewButton.addActionListener( buttonListener );
+		btnNewButton_1.addActionListener( buttonListener );
+		btnNewButton_2.addActionListener( buttonListener );
+		btnNewButton_3.addActionListener( buttonListener );
+		btnNewButton_4.addActionListener( buttonListener );
+		btnNewButton_5.addActionListener( buttonListener );
+		btnNewButton_6.addActionListener( buttonListener );
+		btnNewButton_7.addActionListener( buttonListener );
+		btnNewButton_8.addActionListener( buttonListener );
+		btnNewButton_9.addActionListener( buttonListener );
+		btnNewButton_10.addActionListener( buttonListener );
+		btnNewButton_11.addActionListener( buttonListener );
+		btnNewButton_12.addActionListener( buttonListener );
+		btnNewButton_13.addActionListener( buttonListener );
+		btnNewButton_14.addActionListener( buttonListener );
+		btnNewButton_15.addActionListener( buttonListener );
+		btnNewButton_16.addActionListener( buttonListener );
+		btnNewButton_17.addActionListener( buttonListener );
+		btnNewButton_18.addActionListener( buttonListener );
+		btnNewButton_19.addActionListener( buttonListener );
+		btnNewButton_20.addActionListener( buttonListener );
+		btnNewButton_21.addActionListener( buttonListener );
+		btnNewButton_22.addActionListener( buttonListener );
+		btnNewButton_23.addActionListener( buttonListener );
+		btnNewButton_24.addActionListener( buttonListener );
+		btnNewButton_25.addActionListener( buttonListener );
+		btnNewButton_26.addActionListener( buttonListener );
+		btnNewButton_27.addActionListener( buttonListener );
+		btnNewButton_28.addActionListener( buttonListener );
+		btnNewButton_29.addActionListener( buttonListener );
+		btnNewButton_30.addActionListener( buttonListener );
+		btnNewButton_31.addActionListener( buttonListener );
+		btnNewButton_32.addActionListener( buttonListener );
+		btnNewButton_33.addActionListener( buttonListener );
+		btnNewButton_34.addActionListener( buttonListener );
+		btnNewButton_35.addActionListener( buttonListener );
+		btnNewButton_36.addActionListener( buttonListener );
+		btnNewButton_37.addActionListener( buttonListener );
+		btnNewButton_38.addActionListener( buttonListener );
+		btnNewButton_39.addActionListener( buttonListener );
+		btnNewButton_40.addActionListener( buttonListener );
+		btnNewButton_41.addActionListener( buttonListener );
+		btnNewButton_42.addActionListener( buttonListener );
+		btnNewButton_43.addActionListener( buttonListener );
+		btnNewButton_44.addActionListener( buttonListener );
+		btnNewButton_45.addActionListener( buttonListener );
+		btnNewButton_46.addActionListener( buttonListener );
+		btnNewButton_47.addActionListener( buttonListener );
+		btnNewButton_48.addActionListener( buttonListener );
+		btnNewButton_49.addActionListener( buttonListener );
+		btnNewButton_50.addActionListener( buttonListener );
+		btnNewButton_51.addActionListener( buttonListener );
+		btnNewButton_52.addActionListener( buttonListener );
+		btnNewButton_53.addActionListener( buttonListener );
+		btnNewButton_54.addActionListener( buttonListener );
+		
+		
+		
+		/*
+		btnNewButton_1.addActionListener(new ActionListener(){  
+		    public void actionPerformed(ActionEvent e){  
+		            if (e.getSource() == rdbtnNewRadioButton_1)
+		            	btnNewButton_1.setBackground(COLOR.red);
+		    }  
+		    }); */
 		
 
 	}
