@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-image: url(&quot;file:///C:/Users/nirvana/Desktop/SG455-IQ-PuzzlerPro.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: cover,auto;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+
+   <children>
+      <Button fx:id="Play" mnemonicParsing="false" onAction="#playButtonAction" prefHeight="25.0" prefWidth="158.0" text="Play" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="159.0" text="Main Menu" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+      <Button mnemonicParsing="false" onAction="#createButtonAction" prefHeight="25.0" prefWidth="157.0" text="Create" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+      <Button mnemonicParsing="false" onAction="#achievenmtScoresButtonAction" text="Achievements/High Scores" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Settings" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+      <Button mnemonicParsing="false" onAction="#howToButtonAction" prefHeight="25.0" prefWidth="158.0" text="How To Play" GridPane.columnIndex="4" GridPane.rowIndex="14" />
+      <Button mnemonicParsing="false" onAction="#creditsButtonAction" prefHeight="25.0" prefWidth="158.0" text="Credits" GridPane.columnIndex="4" GridPane.rowIndex="15" />
+      <Button mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="25.0" prefWidth="156.0" text="Quit" GridPane.columnIndex="4" GridPane.rowIndex="16" />
+   </children>
+</GridPane>

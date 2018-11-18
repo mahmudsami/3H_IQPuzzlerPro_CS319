@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1011.0" style="-fx-background-color: red;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+    </rowConstraints>
+    <children>
+      <Button mnemonicParsing="false" onAction="#mainButtonAction" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="35" />
+        <Label prefHeight="35.0" prefWidth="205.0" text="Credits To" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="478.0" layoutY="291.0" text="Ismayil Mammadov" GridPane.columnIndex="4" GridPane.rowIndex="15" />
+        <Label layoutX="478.0" layoutY="291.0" text="Mahmud Sami Aydın" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+        <Label layoutX="478.0" layoutY="291.0" text="Ravan Aliyev" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+        <Label layoutX="478.0" layoutY="291.0" text="Subhan Ibrahimli" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+        <Label layoutX="478.0" layoutY="291.0" text="Cihan Erkan" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+        <Label text="Burak Erdem Varol" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+    </children>
+
+</GridPane>
