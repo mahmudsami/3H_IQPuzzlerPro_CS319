@@ -5,8 +5,8 @@ import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 public class GameEngine{
 //constants 
-public static final int HEIGHT = 30;
-public static final int WIDTH = 15;
+public static final int HEIGHT = 50;
+public static final int WIDTH = 20;
 public static final int DEPTH = 10;
 
 //attributes
@@ -240,6 +240,17 @@ public static final int DEPTH = 10;
    public void yminus()
    {
       move( activePolymino.getMain().getX(),activePolymino.getMain().getY() -2,activePolymino.getMain().getZ());
+   }
+
+   public void zplus()
+   {
+      move(activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()+2);
+   }
+   
+   
+   public void zminus()
+   {
+      move( activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()-2);
    }
 
 
