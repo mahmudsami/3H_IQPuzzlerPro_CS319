@@ -1,6 +1,11 @@
 package control;
 import pieces.*;
 import view.GameView;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import control.Level;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 public class GameEngine{
@@ -21,6 +26,51 @@ public static final int DEPTH = 10;
       Color. CORAL, Color. CYAN, Color. DARKGREEN, Color. DARKORANGE, Color.DARKORCHID,
       Color. GOLD, Color. HOTPINK, Color. KHAKI, Color. RED
    };
+   
+   public GameEngine(String levelName, int boardType) throws FileNotFoundException
+   {
+	   File file = new File("src/levels.txt");
+	   Level level = new Level (levelName, boardType, file);
+	   
+	   this.list = level.list;
+	   
+	   map = new MyNode[HEIGHT * WIDTH * DEPTH];
+	   for( int i = 0; i < HEIGHT; i++)
+	   {
+	      for( int j = 0; j < WIDTH; j++)
+	      {
+	         for( int k = 0; k < DEPTH; k++)
+	            map[ i +  HEIGHT * j + k *  HEIGHT * WIDTH ] = new MyNode( i , j, k, -1);
+	      }
+	   }
+	   
+	   board = new MyNode [ 55 ];
+	   
+	   for(int i = 0; i < 11; i++)
+	   {
+		   for(int j = 0; j < 5; j++)
+		   {
+			   board[i + j * 3] = map[6 + 2 * i + 2 * j * HEIGHT + 6 * HEIGHT * WIDTH ];
+			   
+			   
+		   }
+	   }
+	   
+	   for(int i = 0; i < 7; i++)
+	   {
+		   if (list.getPolymino(i).getCoordinates()[0].equalsTo( new MyNode(-1,-1,-1)))
+		   {
+			   list.getPolymino(i).move( 6 + i * 4 ,6,6 );
+		   }
+		   else
+		   {
+			   int location = list.getPolymino(i).getMain().getX() + list.getPolymino(i).getMain().getY() * 11;
+			   list.getPolymino(i).shiftTo(board[3]);
+			   
+			   
+		   }
+	   }
+   }
    
    public GameEngine(  )
    {

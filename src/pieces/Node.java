@@ -1,3 +1,4 @@
+package pieces;
 /**
  * This class represents nodes 
  * @author Mahmud Sami Aydin

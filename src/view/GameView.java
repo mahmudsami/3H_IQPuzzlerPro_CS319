@@ -1,4 +1,6 @@
 package view;
+import java.io.FileNotFoundException;
+
 import control.GameEngine;
 import javafx.application.Application;
 import javafx.scene.*;
@@ -74,7 +76,7 @@ public class GameView extends Application
       return all;
    }
    
-   public void start( Stage primaryStage ) 
+   public void start( Stage primaryStage ) throws FileNotFoundException 
    {
       primaryStage.setResizable(false);
       //primaryStage.setScene( createScene() );
@@ -82,6 +84,7 @@ public class GameView extends Application
       primaryStage.setScene(scene);
       primaryStage.show();
       
+      //GameEngine game = new GameEngine("level1", 0 );
       GameEngine game = new GameEngine( );
       primaryStage.addEventHandler( KeyEvent.KEY_PRESSED, event -> {
       switch (event.getCode()) {
