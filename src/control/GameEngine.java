@@ -3,7 +3,10 @@ import pieces.*;
 import view.GameView;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Optional;
+
 import control.Level;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 
@@ -12,15 +15,16 @@ public class GameEngine{
 
 //constants 
 
-public static final int HEIGHT = 50;
-public static final int WIDTH = 20;
-public static final int DEPTH = 10;
+public static final int HEIGHT = 60; //50;
+public static final int WIDTH = 30; //20;
+public static final int DEPTH = 12;//10;
 
 //attributes
    MyNode[] map;
    MyNode[] board;
    PolyminoList list;
    //Level level;
+   //Player[] playerList;
    //Level solution;
    Polymino activePolymino;
    GameView view;
@@ -134,7 +138,7 @@ public static final int DEPTH = 10;
       
    }
    
-   public boolean isFinish()
+   public boolean isFinish() throws FileNotFoundException
    {
       boolean finish = true;
       for( MyNode n : board )
@@ -142,7 +146,26 @@ public static final int DEPTH = 10;
          if( n.getColor() == -2 ) finish = false;
       }
       if( finish )
-      {//TODO
+      {
+    	 boolean isHighScore = true;
+    	 
+    	 int hs = 1000; //THIS IS A PLACEHOLDER HIGHSCORE!!!
+    	 
+    	 HighScoreManager hsMan = new HighScoreManager("src/highscores.txt");
+    	 isHighScore = hsMan.checkIfHighScore(hs);
+    	 if (isHighScore)
+    	 {
+    		 TextInputDialog askUserNameDialog = new TextInputDialog ();
+    		 askUserNameDialog.setTitle("New Highscore!");
+    		 askUserNameDialog.setHeaderText("That's a new highscore!");
+    		 askUserNameDialog.setContentText("Please enter your name: ");
+    		 Optional<String> userName = askUserNameDialog.showAndWait();
+    		 
+    		 if(userName.isPresent()) {
+    			 hsMan.addHighScore(userName.get(), hs );
+    		 }
+    	 }
+    	 
          return true;
       }
       return false;

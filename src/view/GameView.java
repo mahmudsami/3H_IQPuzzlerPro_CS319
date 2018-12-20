@@ -127,7 +127,12 @@ public class GameView extends Application
            game.setActive(0);
           break;
       }
-      if(game.isFinish()) { System.exit(0);}
+      try {
+		if(game.isFinish()) { System.exit(0);}
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     });
       
    }
