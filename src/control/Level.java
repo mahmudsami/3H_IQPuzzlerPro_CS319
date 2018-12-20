@@ -76,7 +76,7 @@ public class Level
                         }
                         else //else, this is a relative node.
                         {
-                           nodes[count] = new MyNode (x*2,y*2,z*2,color);
+                           nodes[count] = new MyNode (x,y,z,color);
                            count++;
                         }
                         

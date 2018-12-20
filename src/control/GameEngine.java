@@ -1,15 +1,17 @@
 package control;
 import pieces.*;
 import view.GameView;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import control.Level;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
+
+
 public class GameEngine{
+
 //constants 
+
 public static final int HEIGHT = 50;
 public static final int WIDTH = 20;
 public static final int DEPTH = 10;
@@ -46,12 +48,11 @@ public static final int DEPTH = 10;
 	   
 	   board = new MyNode [ 55 ];
 	   
-	   for(int i = 0; i < 11; i++)
+	   for(int i = 0; i < 5; i++)
 	   {
-		   for(int j = 0; j < 5; j++)
+		   for(int j = 0; j < 11; j++)
 		   {
-			   board[i + j * 3] = map[6 + 2 * i + 2 * j * HEIGHT + 6 * HEIGHT * WIDTH ];
-			   
+			   board[j + i * 11] = map[6 +  2* j + 2*i * HEIGHT + 6 * HEIGHT * WIDTH ];			   
 			   
 		   }
 	   }
