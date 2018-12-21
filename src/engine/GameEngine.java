@@ -5,7 +5,7 @@ import view.GameView;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import control.Level;
+import level.*;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 public class GameEngine{
