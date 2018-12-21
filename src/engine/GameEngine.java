@@ -1,6 +1,10 @@
 package engine;
+
 import pieces.*;
-import view.GameView;
+import engine.*;
+import level.*;
+import engine.*;
+import userInterfaceController.*
 
 import java.io.File;
 import java.io.FileNotFoundException;
