@@ -4,7 +4,7 @@ package pieces;
  * @author Mahmud Sami Aydin
  * 13.11.2018
  */ 
-public class MyNode{
+public class MyNode {
    
 //attributes  
    private int x;
@@ -105,4 +105,6 @@ public class MyNode{
    {
       return ((x + y) % 2 == 0) && ((x + z) % 2 == 0);
    }
+   
+
 }
