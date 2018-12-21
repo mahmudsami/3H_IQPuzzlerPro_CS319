@@ -4,7 +4,7 @@ import pieces.*;
 import engine.*;
 import level.*;
 import engine.*;
-import userInterfaceController.*
+import userInterfaceController.*;
 
 import java.util.*;
 
