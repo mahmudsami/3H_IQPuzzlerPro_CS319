@@ -1,5 +1,10 @@
 package engine;
 
+import pieces.*;
+import engine.*;
+import level.*;
+import engine.*;
+import userInterfaceController.*
 
 public class Player {
 
