@@ -1,4 +1,4 @@
-package view;
+package vgameView;
 import java.io.FileNotFoundException;
 
 import control.GameEngine;
