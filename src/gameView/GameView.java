@@ -4,7 +4,7 @@ import pieces.*;
 import engine.*;
 import level.*;
 import gameView.*;
-import userInterfaceController.*
+import userInterfaceController.*;
 
 import java.io.FileNotFoundException;
 import java.lang.Math;
