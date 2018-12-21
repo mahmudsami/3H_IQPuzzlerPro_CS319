@@ -111,13 +111,58 @@ public class Level
    
    // Methods
    
-   int getSolution (int level)
+   int getSolution ( )
    {
-      //to do...
-      return 0;
+   	  int solution = 0;
+      Queue<Board> pieces = new LinkedList<>();
+      Board temp, tempNext;
+      PolyminoList tempList,temp2List;
+      Polymino tempPl, temp2P;
+	  Polymino[] permutations;
+	  boolean[] uniques;
+      
+      
+      pieces.add( new Board( boardType, new PolyminoList(list) ) );
+      while( pieces.size() > 0 )
+      {
+      	System.out.println("sol:" + solution );
+      	System.out.println("q:" + pieces.size() );
+      	temp = pieces.remove();
+      	if( temp.isFilled() ) solution++;
+      	else{
+      		tempList = temp.getPolyminoList();
+      		
+      		for( int i = 0; i < tempList.getSize(); i++ )
+      		{
+      			tempPl = tempList.getPolymino(i);
+      			if( tempPl.isFree() )
+      			{
+      				permutations = tempPl.permute();
+      				uniques = tempPl.uniquePermutation();
+      				for( int j = 0; j < 16; j++)
+	  				{
+      					if( uniques[j] )
+      					{
+      						temp2List = new PolyminoList( tempList );
+      						tempNext = new Board( boardType, temp2List );
+      						temp2P = permutations[j];
+      						temp2P.move( tempNext.firstPoint().getX(),tempNext.firstPoint().getY(), 0);
+      						temp2List.setPolymino(i , temp2P );
+      						tempNext.addPolymino(i);
+      						if( tempNext.stable )
+      						{
+      							pieces.add(tempNext);
+      						}	
+      					}
+      				} 
+      			}
+      		}
+      	}
+      }
+      return solution;
    }
    
-   Level getSolution(Level level)
+   Board getSolution()
    {
       //to do...
       return null;
