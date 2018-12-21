@@ -21,6 +21,10 @@ public class Polymino
    MyNode oldMainLocation;
    
    //Constructor
+   public Polymino(){
+   		isValid = false;
+   }
+   
    public Polymino( int size, MyNode mainNode, MyNode[] relatives, int color )
    {
       if( relatives == null && size == 1 ){this.size = size;this.mainNode = mainNode ;isValid = true; this.color = color; isFixed =false; return;}
@@ -81,13 +85,13 @@ public class Polymino
       size  = pl.size;
       color = pl.color;
       isFixed = pl.isFixed;
-      mainNode = pl.mainNode;
+      mainNode = new MyNode(pl.mainNode);
       if( pl.relatives == null) relatives = null;
       else{
          relatives = new MyNode[size -1];
          for(int i = 0; i < size - 1 ; i++)
          {
-            relatives[i] = pl.relatives[i];
+            relatives[i] = new MyNode(pl.relatives[i]);
          }
       }
       isValid = pl.isValid; 
@@ -204,9 +208,9 @@ public class Polymino
             tempx = relatives[i].getX();
             tempy = relatives[i].getY();
             tempz = relatives[i].getZ();
-            relatives[i].setX( (tempy + tempx)/2 - tempz/2 );
-            relatives[i].setY( (tempx + tempy)/2 + tempz/2  ); 
-            relatives[i].setZ( tempx  - tempy ); 
+            relatives[i].setX( (tempy + tempx)/2 - tempz );
+            relatives[i].setY( (tempx + tempy)/2 + tempz  ); 
+            relatives[i].setZ( (tempx  - tempy)/2 ); 
          }
          }
          diag = diag ^ ( numOfFlip % 2 == 1);
@@ -217,10 +221,122 @@ public class Polymino
    
    public void restoreOld()
    {
+   	  int temp = lastAction;
       if(lastAction == 0) mainNode = oldMainLocation;
-      else if( lastAction % 4 ==0 ) flip( 4 - lastAction / 4 );
-      else rotate ( 4 - lastAction );
+      flip( 4 - temp / 4 );
+      rotate( 4 - temp );
       lastAction = 0;
+   }
+   
+   public void normalize()
+   {
+   		int index = -1;
+		MyNode temp = new MyNode();
+   		for( int i = 0; i < size-1; i++ )
+   		{
+   			if( relatives[i].getY() < temp.getY() )
+   			{
+   				index = i;
+   				temp = new MyNode( relatives[i] );
+   			}
+   			else if( relatives[i].getY() == temp.getY() )
+   			{
+   				if( relatives[i].getX() < temp.getX() )
+   				{
+   					index = i;
+   					temp = new MyNode( relatives[i] );
+   				}
+   			}
+   		}
+   		if( index > -1 )
+   		{
+   			for( int i = 0; i < size-1; i++ )
+   			{
+   				if( i != index )
+   				{
+   					relatives[i].setX( relatives[i].getX() - temp.getX());
+   					relatives[i].setY( relatives[i].getY() - temp.getY());
+   					relatives[i].setZ( relatives[i].getZ() - temp.getZ());
+   				}else{
+   					relatives[i].setX( - temp.getX());
+   					relatives[i].setY( - temp.getY());
+   					relatives[i].setZ( - temp.getZ());
+   				}
+   			}
+   			
+   			mainNode.setX( mainNode.getX() + temp.getX());
+   			mainNode.setY( mainNode.getY() + temp.getY());
+   			mainNode.setZ( mainNode.getZ() + temp.getZ());
+   		}
+   		 
+   }
+ 
+   public Polymino[] permute()
+   {
+   		Polymino[] permutations = new Polymino[16];
+   		for( int i = 0; i < 16; i++ )
+   		{
+   			lastAction = i;
+   			restoreOld();
+ 			permutations[i] = new Polymino( this );
+ 			permutations[i].normalize();
+ 			if( isFree() ) permutations[i].move(-1,-1,-1);
+ 			lastAction = -(i%4) + 4*(- (i/4));
+   			restoreOld();
+   		}
+   		return permutations;
+   } 
+   
+   public boolean[] uniquePermutation()
+   {
+   		boolean[] temp = new boolean[16];
+   		boolean unique; 
+   		Polymino[] permutations = permute();
+   		for( int i = 0; i < 16; i++ )
+   		{
+   			unique = true;
+   			for(int j=0 ;j < i && unique ; j++)
+   			{
+   				if( permutations[j].sameWith(permutations[i]) )
+   				{
+   					unique = false;
+   				}
+   			}
+   			temp[i] = unique;
+   		}
+   		return temp;
+   }
+   
+   public boolean sameWith( Polymino pl )
+   {
+   		if( size != pl.size )  return false;
+   		boolean match;
+   		for( int i = 0; i < size-1; i++)
+   		{
+   			match = false;
+   			for( int j = 0; j < size-1 && !match ; j++ )
+   			{
+   				if( relatives[i].equalsTo(pl.relatives[j]))
+   					match =true;
+   			}
+   			if(!match) return false;
+   		}
+   		return true;
+   }
+   
+   public void print()
+   {
+   		MyNode[] temp = getCoordinates();
+   		for( MyNode n : temp )
+   		{
+   			System.out.println("X: " + n.getX() +"Y: " + n.getY() +"Z: " + n.getZ());
+   		}
+   		System.out.println("--------------");
+   }
+   
+   public boolean isFree( )
+   {
+   		return mainNode.equalsTo( new MyNode(-1,-1,-1) );
    }
    
    public boolean equalsTo( Polymino pl )

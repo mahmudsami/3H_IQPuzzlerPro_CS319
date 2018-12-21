@@ -3,13 +3,12 @@ package engine;
 import pieces.*;
 import engine.*;
 import level.*;
-import engine.*;
+import gameView.*;
 import userInterfaceController.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import level.*;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 public class GameEngine{
@@ -37,7 +36,7 @@ public static final int DEPTH = 10;
 	   File file = new File("levels.txt");
 	   Level level = new Level (levelName, boardType, file);
 	   System.out.println("level solutions:" + level.getSolution());
-	   this.list = level.list;
+	   this.list = level.getList();
 	   map = new MyNode[HEIGHT * WIDTH * DEPTH];
 	   for( int i = 0; i < HEIGHT; i++)
 	   {

@@ -8,7 +8,6 @@ import userInterfaceController.*;
 
 import java.io.FileNotFoundException;
 import java.lang.Math;
-import control.GameEngine;
 import javafx.application.Application;
 import javafx.scene.*;
 import javafx.scene.shape.*;

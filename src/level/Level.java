@@ -111,7 +111,7 @@ public class Level
    
    // Methods
    
-   int getSolution ( )
+   public int getSolution ( )
    {
    	  int solution = 0;
       Queue<Board> pieces = new LinkedList<>();
@@ -161,8 +161,12 @@ public class Level
       }
       return solution;
    }
+   public PolyminoList getList()
+   {
+   	return list;
+   }
    
-   Board getSolution()
+   public Board getSolution( int type )
    {
       //to do...
       return null;
