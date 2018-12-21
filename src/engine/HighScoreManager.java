@@ -1,5 +1,11 @@
 package engine;
 
+import pieces.*;
+import engine.*;
+import level.*;
+import engine.*;
+import userInterfaceController.*
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
