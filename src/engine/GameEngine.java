@@ -1,45 +1,39 @@
-package control;
+package engine;
 import pieces.*;
 import view.GameView;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Optional;
 
-import control.Level;
-import javafx.scene.control.TextInputDialog;
+import level.*;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
-
-
 public class GameEngine{
-
 //constants 
-
-public static final int HEIGHT = 60; //50;
-public static final int WIDTH = 30; //20;
-public static final int DEPTH = 12;//10;
+public static final int HEIGHT = 50;
+public static final int WIDTH = 20;
+public static final int DEPTH = 10;
 
 //attributes
    MyNode[] map;
    MyNode[] board;
    PolyminoList list;
+   int activeIndex;
    //Level level;
-   //Player[] playerList;
    //Level solution;
    Polymino activePolymino;
    GameView view;
-   Color[] colors = { Color.TRANSPARENT,  Color. BLUE, Color. BROWN ,  Color.CHARTREUSE, 
-      Color. CORAL, Color. CYAN, Color. DARKGREEN, Color. DARKORANGE, Color.DARKORCHID,
-      Color. GOLD, Color. HOTPINK, Color. KHAKI, Color. RED
+   Color[] colors = { Color.TRANSPARENT,  Color. RED, Color. BROWN ,  Color.CHARTREUSE, 
+      Color. CORAL, Color. BLUE, Color. DARKGREEN, Color. DARKORANGE, Color.DARKORCHID,
+      Color. GOLD, Color. HOTPINK, Color. KHAKI, Color.CYAN 
    };
    
    public GameEngine(String levelName, int boardType) throws FileNotFoundException
    {
-	   File file = new File("src/levels.txt");
+	   File file = new File("levels.txt");
 	   Level level = new Level (levelName, boardType, file);
-	   
+	   System.out.println("level solutions:" + level.getSolution());
 	   this.list = level.list;
-	   
 	   map = new MyNode[HEIGHT * WIDTH * DEPTH];
 	   for( int i = 0; i < HEIGHT; i++)
 	   {
@@ -51,30 +45,54 @@ public static final int DEPTH = 12;//10;
 	   }
 	   
 	   board = new MyNode [ 55 ];
-	   
-	   for(int i = 0; i < 5; i++)
+	   if( boardType == 0)
 	   {
-		   for(int j = 0; j < 11; j++)
+	   for(int i = 0; i < 11; i++)
+	   {
+		   for(int j = 0; j < 5; j++)
 		   {
-			   board[j + i * 11] = map[6 +  2* j + 2*i * HEIGHT + 6 * HEIGHT * WIDTH ];			   
+			   board[i + j * 11] = map[6 + 2 * i + 2 * j * HEIGHT + 6 * HEIGHT * WIDTH ];
+			   
 			   
 		   }
 	   }
-	   
-	   for(int i = 0; i < 7; i++)
+	   }else{
+	   int temp = 0;
+	   for( int i = 5; i  > 0; i--)
 	   {
+	   		for( int j = 5; j > 0; j-- )
+	   		{
+	   			for( int k = 5; k > 0; k-- )
+	   			{
+	   				if( i >= k && i >= j )
+	   				{
+	   					board[ temp ] = map[ 25 + (2*j-i) + ( 5 + 2*k-i)*HEIGHT + (i+1) * HEIGHT * WIDTH];
+	   					temp++;
+	   					System.out.println("temp: " +temp + " " + i + " " + j + " " + k);
+	   				}
+	   			}
+	   		}
+	   }
+	   }
+	   for(int i = 0; i < list.getSize(); i++)
+	   {
+	   		System.out.println(i);
 		   if (list.getPolymino(i).getCoordinates()[0].equalsTo( new MyNode(-1,-1,-1)))
 		   {
-			   list.getPolymino(i).move( 6 + i * 4 ,6,6 );
+			   list.getPolymino(i).move(  i * 4 ,6,6 );
+			   activePolymino = list.getPolymino(i);
 		   }
 		   else
 		   {
-			   int location = list.getPolymino(i).getMain().getX() + list.getPolymino(i).getMain().getY() * 11;
-			   list.getPolymino(i).shiftTo(board[3]);
-			   
+				list.getPolymino(i).shiftTo(board[0]);
+           		list.getPolymino(i).setFixed();
 			   
 		   }
 	   }
+      updateMap();
+      
+   
+      
    }
    
    public GameEngine(  )
@@ -89,12 +107,12 @@ public static final int DEPTH = 12;//10;
          }
       }
       
-      board = new MyNode[ 9 ];
-      for( int i = 0; i < 3; i++)
+      board = new MyNode[ 55 ];
+      for( int i = 0; i < 11; i++)
       {
-         for( int j = 0; j < 3; j++ )
+         for( int j = 0; j < 5; j++ )
          {
-             board[ i + j * 3 ] = map[ 6 +  2* i + 2*j * HEIGHT + 6 * HEIGHT * WIDTH];
+             board[ i + j * 11 ] = map[ 6 +  2* i + 2*j * HEIGHT + 6 * HEIGHT * WIDTH];
          }
       }
       
@@ -138,7 +156,7 @@ public static final int DEPTH = 12;//10;
       
    }
    
-   public boolean isFinish() throws FileNotFoundException
+   public boolean isFinish()
    {
       boolean finish = true;
       for( MyNode n : board )
@@ -146,26 +164,7 @@ public static final int DEPTH = 12;//10;
          if( n.getColor() == -2 ) finish = false;
       }
       if( finish )
-      {
-    	 boolean isHighScore = true;
-    	 
-    	 int hs = 1000; //THIS IS A PLACEHOLDER HIGHSCORE!!!
-    	 
-    	 HighScoreManager hsMan = new HighScoreManager("src/highscores.txt");
-    	 isHighScore = hsMan.checkIfHighScore(hs);
-    	 if (isHighScore)
-    	 {
-    		 TextInputDialog askUserNameDialog = new TextInputDialog ();
-    		 askUserNameDialog.setTitle("New Highscore!");
-    		 askUserNameDialog.setHeaderText("That's a new highscore!");
-    		 askUserNameDialog.setContentText("Please enter your name: ");
-    		 Optional<String> userName = askUserNameDialog.showAndWait();
-    		 
-    		 if(userName.isPresent()) {
-    			 hsMan.addHighScore(userName.get(), hs );
-    		 }
-    	 }
-    	 
+      {//TODO
          return true;
       }
       return false;
@@ -289,8 +288,17 @@ public static final int DEPTH = 12;//10;
    {
       if( list.getPolymino( index ).getIsFixed() )
          return false;
+      activeIndex = index;
       activePolymino = list.getPolymino( index );
       return true;
+   }
+   
+   public void nextActive()
+   {
+   		int tempIndex = (activeIndex + 1) % list.getSize();
+   		while( !setActive( tempIndex ) )
+   				tempIndex = (tempIndex + 1) % list.getSize();
+   		updateView();
    }
    
    public void xplus()
@@ -327,6 +335,15 @@ public static final int DEPTH = 12;//10;
       move( activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()-2);
    }
 
+	public void mvdgr()
+	{
+	 	move( activePolymino.getMain().getX()+1,activePolymino.getMain().getY()+1 ,activePolymino.getMain().getZ()-1);	
+	}
+	
+	public void mvdgl()
+	{
+	 	move( activePolymino.getMain().getX()-1,activePolymino.getMain().getY()+1 ,activePolymino.getMain().getZ()-1);
+	}
 
    public void updateView()
    { 
@@ -338,11 +355,14 @@ public static final int DEPTH = 12;//10;
          y = n.getY();
          z = n.getZ();
          col = n.getColor();
+       	if( (x+y) %2 == 0 &&  (x+z) %2 == 0)
+       	{
          temp = (PhongMaterial)(GameView.nodes[x][y][z].getMaterial());
          if( col != -2 )
          {
          	temp.setDiffuseColor(colors[col+1]);
-         	temp.setSpecularColor(colors[col+1]);
+         	if( col != activeIndex ) temp.setSpecularColor(new Color(0,0,0,1 ));
+         	else temp.setSpecularColor(colors[col+1]);
          }
          else
          {
@@ -351,6 +371,7 @@ public static final int DEPTH = 12;//10;
          }
          GameView.nodes[x][y][z].setMaterial( temp );
          GameView.nodes[x][y][z].setDrawMode(DrawMode.FILL);
+         }
       }
    }
 
