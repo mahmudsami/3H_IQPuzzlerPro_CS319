@@ -19,13 +19,12 @@ public class Level
    PolyminoList list;
    
    //Constructors
-   
-   public Level(String name, int boardType, File level) throws FileNotFoundException
+      public Level(String name, int boardType, File level) throws FileNotFoundException
    {
       levelName = name;
       this.boardType = boardType;
       Scanner sc = new Scanner (level);
-      list = new PolyminoList(7);
+      list = new PolyminoList(12);
       
       //iterate whole file until you find the part corresponds to levelName
       while (sc.hasNextLine())
@@ -80,7 +79,7 @@ public class Level
                         }
                         else //else, this is a relative node.
                         {
-                           nodes[count] = new MyNode (x,y,z,color);
+                           nodes[count] = new MyNode (x*2,y*2,z,color);
                            count++;
                         }
                         
@@ -166,15 +165,10 @@ public class Level
    	return list;
    }
    
-   public Board getSolution( int type )
+   public Board getSolvedBoard( )
    {
       //to do...
       return null;
    }
    
-   boolean setBoard(MyNode origin)
-   {
-      //to do...
-      return true;
-   }
 }   
