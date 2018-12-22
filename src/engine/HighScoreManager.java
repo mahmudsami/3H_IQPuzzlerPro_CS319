@@ -23,7 +23,7 @@ public class HighScoreManager {
 	
 	public HighScoreManager (String fileName) throws FileNotFoundException
 	{
-		highScores = new File("src/highscores.txt");
+		highScores = new File(fileName);
 		Scanner reader = new Scanner(highScores);
 		
 		names = new String [11];

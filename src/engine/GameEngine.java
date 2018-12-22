@@ -8,7 +8,9 @@ import userInterfaceController.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Optional;
 
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 public class GameEngine{
@@ -26,6 +28,7 @@ public static final int DEPTH = 10;
    //Level solution;
    Polymino activePolymino;
    GameView view;
+   Stopwatch sw;
    Color[] colors = { Color.TRANSPARENT,  Color. RED, Color. BROWN ,  Color.CHARTREUSE, 
       Color. CORAL, Color. BLUE, Color. DARKGREEN, Color. DARKORANGE, Color.DARKORCHID,
       Color. GOLD, Color. HOTPINK, Color. KHAKI, Color.CYAN 
@@ -33,6 +36,7 @@ public static final int DEPTH = 10;
    
    public GameEngine(String levelName, int boardType) throws FileNotFoundException
    {
+	   sw = new Stopwatch();
 	   File file = new File("levels.txt");
 	   Level level = new Level (levelName, boardType, file);
 	   System.out.println("level solutions:" + level.getSolution());
@@ -92,6 +96,7 @@ public static final int DEPTH = 10;
 			   
 		   }
 	   }
+	   sw.start();
       updateMap();
       
    
@@ -159,7 +164,7 @@ public static final int DEPTH = 10;
       
    }
    
-   public boolean isFinish()
+   public boolean isFinish() throws FileNotFoundException
    {
       boolean finish = true;
       for( MyNode n : board )
@@ -167,7 +172,32 @@ public static final int DEPTH = 10;
          if( n.getColor() == -2 ) finish = false;
       }
       if( finish )
-      {//TODO
+      {
+    	 boolean isHighScore = true;
+    	 
+    	 double time = (sw.stop());
+    	 
+    	 int hs = 0; //THIS IS A PLACEHOLDER HIGHSCORE!!!
+    	 
+    	 hs = (int) (100000 / time);
+    	 
+    	 System.out.println(hs);
+    	 
+    	 HighScoreManager hsMan = new HighScoreManager("highscores.txt");
+    	 isHighScore = hsMan.checkIfHighScore(hs);
+    	 if (isHighScore)
+    	 {
+    		 TextInputDialog askUserNameDialog = new TextInputDialog ();
+    		 askUserNameDialog.setTitle("New Highscore!");
+    		 askUserNameDialog.setHeaderText("Your score is "+ hs + ", and that's a new highscore!");
+    		 askUserNameDialog.setContentText("Please enter your name: ");
+    		 Optional<String> userName = askUserNameDialog.showAndWait();
+    		 
+    		 if(userName.isPresent()) {
+    			 hsMan.addHighScore(userName.get(), hs );
+    		 }
+    	 }
+    	 
          return true;
       }
       return false;
