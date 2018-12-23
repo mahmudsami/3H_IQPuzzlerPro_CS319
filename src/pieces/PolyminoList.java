@@ -44,12 +44,48 @@ public class PolyminoList{
    public PolyminoList( int size , Polymino[] list)
    {
       validSize = 0; 
-      list = new Polymino[size]; 
+      this.size = size;
+      this.list = new Polymino[size]; 
       for( int i = 0; i < list.length ; i++ )
       {
          addPolymino( list[i] );
       }
    } 
+   
+   public PolyminoList(int[] nodes, int boardtype)
+   {
+   	  if( nodes.length != 55 ) return;
+	  size = 12;
+	  validSize = 0;
+      list = new Polymino[size]; 
+   	  ArrayList<MyNode> temp = new ArrayList<>();
+	  switch (boardtype)
+	  {
+	  	case 0:
+	  		boolean seen;
+	  		MyNode tempMain = new MyNode();
+	  	    for( int i = 0; i < size ; i++ )
+      		{
+      			seen = false;
+      			for( int j = 0; j < 55; j++ )
+      			{
+      				if( seen && nodes[j] == i)
+      				{
+      					temp.add( new MyNode( j%11 - tempMain.getX(), j/11 - tempMain.getY(),0));
+      				}
+      				else if( nodes[j] == i ){
+      					tempMain = new MyNode( j%11, j/11, 0);
+      					seen = true;
+      				}
+      			}
+      			addPolymino( new Polymino( tempMain,temp.toArray(),i ));
+      			temp = new ArrayList<>();
+      		}
+	  	return; 
+	  }
+	  return;
+   }
+   
    
    public Polymino getPolymino( int x )
    {
@@ -98,7 +134,11 @@ public class PolyminoList{
       return false;
    }
    
-
+	
+   public void freePolymino( int index)
+   {
+   		list[index].move(-1,-1,-1);
+   }
    
    public boolean notCollide( int index)
    {
