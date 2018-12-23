@@ -68,18 +68,18 @@ public class Level
                      else // else, the word is a node for polymino
                      {
                         String[] elements = word.split(","); // split the word by comma, which gives positions of nodes.
-                        int x = Integer.parseInt(elements[0]);
-                        int y = Integer.parseInt(elements[1]);
-                        int z = Integer.parseInt(elements[2]);
+                        double x = Double.parseDouble(elements[0]);
+                        double y = Double.parseDouble(elements[1]);
+                        double z = Double.parseDouble(elements[2]);
                         
                         if (isMainNode)
                         {
-                           nodes[0] = new MyNode (x,y,z,color); // nodes[0] will represent main node
+                           nodes[0] = new MyNode ((int)(x),(int)(y),(int)(z),color); // nodes[0] will represent main node
                            isMainNode = false;
                         }
                         else //else, this is a relative node.
                         {
-                           nodes[count] = new MyNode (x*2,y*2,z,color);
+                           nodes[count] = new MyNode ((int)(x*2),(int)(y*2),z,color);
                            count++;
                         }
                         
