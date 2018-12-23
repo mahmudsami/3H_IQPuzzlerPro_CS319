@@ -78,7 +78,7 @@ public class PolyminoList{
       					seen = true;
       				}
       			}
-      			addPolymino( new Polymino( tempMain,temp.toArray(),i ));
+      			addPolymino( new Polymino(12, tempMain,(MyNode[])(temp.toArray()),i ));
       			temp = new ArrayList<>();
       		}
 	  	return; 

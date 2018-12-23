@@ -1,5 +1,5 @@
 package userInterfaceController;
-
+import gameView.GameView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -105,6 +105,21 @@ public class Controller {
     @FXML
     private void quitButtonAction(ActionEvent event) throws Exception {
 
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+
+    }
+     @FXML
+    private void playSinglePlayerButtonAction(ActionEvent event) throws Exception {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("PlayScreen.fxml"));
+        
+        Stage stage = new Stage();
+        stage.setTitle("GamePlay");
+        stage.setScene(new Scene(root, 800, 600));
+        GameView game = new GameView();
+        game.start( stage );
+        stage.show();
+        System.out.println("Clicked");
         ((Node)(event.getSource())).getScene().getWindow().hide();
 
     }
