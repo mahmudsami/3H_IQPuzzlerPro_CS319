@@ -2,14 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover,auto;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceController.Controller">
+<GridPane alignment="CENTER" hgap="10" prefHeight="600.0" prefWidth="800.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceController.Controller">
 
    <columnConstraints>
       <ColumnConstraints />
@@ -38,16 +39,17 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints />
    </rowConstraints>
 
 
    <children>
-      <Button fx:id="Play" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#playButtonAction" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: red;" text="Play" textFill="WHITE" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="11">
+      <Button fx:id="Play" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#playButtonAction" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: red;" text="Play" textFill="WHITE" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
          <effect>
             <Reflection fraction="0.38" />
          </effect>
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets left="-10.0" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
@@ -55,57 +57,54 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></Button>
-      <Label alignment="CENTER" prefHeight="80.0" prefWidth="399.0" text="IQ Puzzzler Pro" GridPane.columnIndex="4" GridPane.rowIndex="1">
-         <font>
-            <Font size="54.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets></Label>
-      <Button mnemonicParsing="false" onAction="#createButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: blue;" text="Create" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="12">
+      <Button mnemonicParsing="false" onAction="#createButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: blue;" text="Create" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8">
          <effect>
             <Reflection fraction="0.37" />
          </effect>
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button mnemonicParsing="false" onAction="#achievenmtScoresButtonAction" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: green;" text="High Scores" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="13">
+      <Button mnemonicParsing="false" onAction="#achievementScoresButtonAction" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: green;" text="High Scores" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9">
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: orange;" text="Settings" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="14">
+      <Button mnemonicParsing="false" onAction="#settingsButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: orange;" text="Sound Setting" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="10">
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button mnemonicParsing="false" onAction="#howToButtonAction" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: purple;" text="How To Play" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="15">
+      <Button mnemonicParsing="false" onAction="#howToButtonAction" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: purple;" text="How To Play" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11">
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button mnemonicParsing="false" onAction="#creditsButtonAction" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: pink;" text="Credits" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="16">
+      <Button mnemonicParsing="false" onAction="#creditsButtonAction" prefHeight="25.0" prefWidth="158.0" style="-fx-background-color: pink;" text="Credits" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="12">
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: brown;" text="Quit" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="17">
+      <Button mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: brown;" text="Quit" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="13">
          <GridPane.margin>
-            <Insets left="111.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
+      <ImageView fitHeight="199.0" fitWidth="546.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <image>
+            <Image url="@../img/final_final.png" />
+         </image></ImageView>
    </children>
 </GridPane>

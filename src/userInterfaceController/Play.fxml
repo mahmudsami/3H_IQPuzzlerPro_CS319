@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover,auto;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceController.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="600.0" prefWidth="800.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover,auto;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceController.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -61,7 +61,7 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: blue;" text="Multi Player" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="10">
+      <Button mnemonicParsing="false" onAction="#multiplayerButtonAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: blue;" text="Multi Player" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="10">
          <effect>
             <Reflection fraction="0.37" />
          </effect>

@@ -1,10 +1,14 @@
 package userInterfaceController;
 
 import javafx.application.Application;
+import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 
 public class Main extends Application {
 
@@ -18,9 +22,7 @@ public class Main extends Application {
 
     }
 
-    public static void playClicked(String[] args) {
-        launch(args);
-    }
+
     public static void main(String[] args) {
         launch(args);
     }
