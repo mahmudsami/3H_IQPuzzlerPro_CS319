@@ -24,7 +24,7 @@ Mainly control will be drag & drop with mouse. Keyboard will be helper for the r
 ### New Features
 1. **Level Checker:** It is a module which test manuel created levels in terms of level criterias.
 2. **Achievements:** There are trophies which will be given for some success in the levels such as finish level in certain time or not using undo.
-3. ...
+3. **Multiplayer** Players can play game in a multiplayer game mode.
 ## References
 [1] https://engineering.purdue.edu/INSPIRE/Reviews/puzzles/iq-puzzler-pro
 
