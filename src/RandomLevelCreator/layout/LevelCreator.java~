@@ -1,0 +1,346 @@
+package layout;
+
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class LevelCreator extends JFrame {
+    JButton[] buttons = new JButton[55];
+    GridLayout experimentLayout = new GridLayout(5,11);
+    
+    
+    public LevelCreator(String name) {
+        super(name);
+        setResizable(false);
+    }
+
+    
+    public JPanel addComponentsToPane(final Container pane) {
+      
+      
+        final JPanel compsToExperiment = new JPanel();
+        compsToExperiment.setLayout(experimentLayout);
+
+        
+        //Set up components preferred size
+        JButton b = new JButton(" Example Button ");
+        Dimension buttonSize = b.getPreferredSize();
+        compsToExperiment.setPreferredSize(new Dimension((int)(buttonSize.getWidth() * 2.5)+20,
+                (int)(buttonSize.getHeight() * 3.5)+20 * 2));
+        
+        int[] arr = {1,1,1,2,2,2,3,4,4,4,4,5,5,1,1,6,2,3,3,4,7,7,5,5,6,6,6,2,8,8,9,9,7,10,5,10,6,11,11,12,8,8,9,7,10,10,10,11,11,12,12,12,8,9,7};
+        System.out.println(arr.length);
+        //Add buttons to experiment with Grid Layout
+             
+        JButton done = new JButton("Done");
+        done.addActionListener(listenDone);
+        
+              setButtonColors(arr);
+              
+              for(int i = 0 ; i < 55; i++)
+                buttons[i].setEnabled(true);
+              
+              for(int i = 0; i  < 55; i++){
+                compsToExperiment.add(buttons[i]);
+              }
+              
+        JPanel controls = new JPanel();
+      //  controls.setLayout(new BoxLayout(controls,BoxLayout.LINE_AXIS));
+        
+        //Set up the horizontal gap value
+                experimentLayout.setHgap(15);
+                //Set up the vertical gap value
+                experimentLayout.setVgap(15);
+                //Set up the layout of the buttons
+                //experimentLayout.layoutContainer(compsToExperiment);
+       
+                
+               
+        //pane.add(compsToExperiment, BorderLayout.NORTH);
+        //pane.add(new JSeparator(), BorderLayout.CENTER);
+        //pane.add(controls, BorderLayout.SOUTH);
+
+        
+        ButtonGroup group1 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "1"))
+        {
+          buttons[i].addActionListener(listen);
+          group1.add(buttons[i]);
+        }
+        }
+        
+        ButtonGroup group2 = new ButtonGroup();
+         for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "2"))
+        {
+          buttons[i].addActionListener(listen);
+          group2.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group3 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "3"))
+        {
+          buttons[i].addActionListener(listen);
+          group3.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group4 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "4"))
+        {
+          buttons[i].addActionListener(listen);
+          group4.add(buttons[i]);
+        }
+        }
+        
+  
+                ButtonGroup group5 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "5"))
+        {
+          buttons[i].addActionListener(listen);
+          group5.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group6 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "6"))
+        {
+          buttons[i].addActionListener(listen);
+          group6.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group7 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "7"))
+        {
+          buttons[i].addActionListener(listen);
+          group7.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group8 = new ButtonGroup();
+         for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "8"))
+        {
+          buttons[i].addActionListener(listen);
+          group8.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group9 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "9"))
+        {
+          buttons[i].addActionListener(listen);
+          group9.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group10 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "10"))
+        {
+          buttons[i].addActionListener(listen);
+          group10.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group11 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "11"))
+        {
+          buttons[i].addActionListener(listen);
+          group11.add(buttons[i]);
+        }
+        }
+        
+                ButtonGroup group12 = new ButtonGroup();
+        for(int i = 0; i < 55; i++)
+        {
+          if(buttons[i].getText().equals( "12"))
+        {
+          buttons[i].addActionListener(listen);
+          group12.add(buttons[i]);
+        }
+        }
+        return compsToExperiment;
+    }
+    
+    ActionListener listen = new ActionListener() 
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JButton btn = (JButton) e.getSource();
+            
+            int count = 0;
+            for(int i = 0 ; i < 55; i++)
+                if(buttons[i].getText().equals(btn.getText()))
+            { 
+              System.out.println("Pressed");
+              if(buttons[i].isEnabled()){
+                  buttons[i].setEnabled(false);
+                  count++;
+            }
+            else if( buttons[i].isEnabled() == false && count==0)
+            {System.out.println("test");
+              buttons[i].setEnabled(true);
+             
+            }
+            count = 0;
+            }
+            }
+        
+    };
+    
+        ActionListener listenDone = new ActionListener() 
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          
+          String[] colors = {"","black","red","light gray","blue","yellow","green", "pink", "cyan","orange","magenta","white", "dark gray"};
+          
+          int [] numArr = new int[12];
+          int counter = 0;
+          int index = 0;
+            JButton btn = (JButton) e.getSource();
+            if(btn.getModel().isPressed())
+            {
+              for(int i = 0; i < 55; i++)
+                if(!buttons[i].isEnabled())
+              {
+                  for(int j = 0; j  <13; i++)
+                  {
+                    if(numArr[j]==(Integer.parseInt(buttons[i].getText())))
+                      counter++;
+                  }
+                  
+                  if(counter == 0)
+                  {
+                    numArr[index] = Integer.parseInt(buttons[i].getText());
+                    index++;
+                  }
+                  counter = 0;
+              }
+              
+              System.out.println("Removed Colors are: ");
+              
+              for(int i = 0 ; i < 12; i++)
+              {
+                if(numArr[i] != 0)
+                  System.out.println(colors[numArr[i]] + "  ");
+              }
+              
+            }
+            
+            System.out.println(" Other colors remain on the board ");
+            
+        }};
+    
+   public void setButtonColors(int [] integers) 
+   {
+      Color[] colors = new Color[12];
+      colors[0] = Color.black;
+      colors[1] = Color.red;
+      colors[2] = Color.LIGHT_GRAY;
+      colors[3] = Color.blue;
+      colors[4] = Color.yellow;
+      colors[5] = Color.green;
+      colors[6] = Color.pink;
+      colors[7] = Color.cyan;
+      colors[8] = Color.orange;
+      colors[9] = Color.magenta;
+      colors[10] = Color.white;
+      colors[11] = Color.DARK_GRAY;
+      
+      int colorIndex = 0;
+      
+      for(int i = 0; i < 55; i++)
+        buttons[i] = new JButton(String.valueOf(integers[i])); 
+
+      for(int i = 0; i < 55; i++)
+      {
+        for(int j = i; j < 55; j++)
+        {
+          if((buttons[i].getText() == buttons[j].getText()) && (buttons[j].isEnabled()))
+          {
+        
+            buttons[j].setBackground(colors[integers[colorIndex]-1]);
+            buttons[j].setEnabled(false);
+            colorIndex++;
+          } 
+      } 
+
+      }
+      
+   }
+    
+    /**
+     * Create the GUI and show it.  For thread safety,
+     * this method is invoked from the
+     * event dispatch thread.
+     */
+
+    
+    public static void main(String[] args) {
+        /* Use an appropriate Look and Feel */
+        try {
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        } catch (IllegalAccessException ex) {
+            ex.printStackTrace();
+        } catch (InstantiationException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        /* Turn off metal's use of bold fonts */
+        UIManager.put("swing.boldMetal", Boolean.FALSE);
+        
+        //Create and set up the window.
+       // GridLayoutDemo frame = new GridLayoutDemo("GridLayoutDemo");
+        
+        //JFrame norm = new JFrame();
+        
+        
+        
+        //Schedule a job for the event dispatch thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                //createAndShowGUI();
+        GridLayoutDemo frame = new GridLayoutDemo("GridLayoutDemo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Set up the content pane.
+        
+        JFrame norm = new JFrame();
+        
+        norm.add(frame.addComponentsToPane(frame.getContentPane()));
+        //Display the window.
+        norm.pack();
+        norm.setVisible(true);
+              
+            }
+        });
+    }
+}
