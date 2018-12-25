@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Optional;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
@@ -196,6 +198,14 @@ public static final int DEPTH = 10;
     		 if(userName.isPresent()) {
     			 hsMan.addHighScore(userName.get(), hs );
     		 }
+    	 }
+    	 else
+    	 {
+    		 Alert noHighscore = new Alert(AlertType.INFORMATION);
+    		 noHighscore.setTitle("Congratulations!");
+    		 noHighscore.setHeaderText(null);
+    		 noHighscore.setContentText("Congratulations, You Finished This Level!");
+    		 noHighscore.showAndWait();
     	 }
     	 
          return true;

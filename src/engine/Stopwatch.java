@@ -28,5 +28,30 @@ public class Stopwatch {
 		return temp / 1000.0;
 	}
 	
+	public int turn(double turnStatus, Player player)
+	{
+		double time = stop();
+		
+		int rawScore = (int)(100000 / time);
+		int score = 0;
+		
+		if (turnStatus > 0)
+		{
+			score = (int) (rawScore * turnStatus);
+		}
+		else
+		{
+			score = (int) (rawScore / turnStatus);
+		}
+		
+		int newScore = player.getScore() + score;
+		
+		player.setScore(newScore);
+		
+		start();		
+		return newScore;
+		
+	}
+	
 
 }
