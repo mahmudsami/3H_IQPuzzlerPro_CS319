@@ -12,6 +12,7 @@ import javax.swing.*;
 
 public class Main extends Application {
 
+	public static int level = 0;
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -19,6 +20,7 @@ public class Main extends Application {
         primaryStage.setTitle("IQ Puzzle Game");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
+        level++;
 
     }
 

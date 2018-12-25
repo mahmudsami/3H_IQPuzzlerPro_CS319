@@ -26,7 +26,7 @@ public static final int DEPTH = 10;
    MyNode[] board;
    PolyminoList list;
    int activeIndex;
-   //Level level;
+   Level level;
    //Level solution;
    Polymino activePolymino;
    GameView view;
@@ -40,7 +40,7 @@ public static final int DEPTH = 10;
    {
 	   sw = new Stopwatch();
 	   File file = new File("levels.txt");
-	   Level level = new Level (levelName, boardType, file);
+	   level = new Level (levelName, boardType, file);
 	   System.out.println("level solutions:" + level.getSolution());
 	   this.list = level.getList();
 	   map = new MyNode[HEIGHT * WIDTH * DEPTH];
@@ -69,15 +69,14 @@ public static final int DEPTH = 10;
 	   int temp = 0;
 	   for( int i = 5; i  > 0; i--)
 	   {
-	   		for( int j = 5; j > 0; j-- )
+	   		for( int j = 1; j <=5; j++ )
 	   		{
-	   			for( int k = 5; k > 0; k-- )
+	   			for( int k = 1; k  <=5; k++)
 	   			{
 	   				if( i >= k && i >= j )
 	   				{
 	   					board[ temp ] = map[ 25 + (2*j-i) + ( 5 + 2*k-i)*HEIGHT + (i+1) * HEIGHT * WIDTH];
 	   					temp++;
-	   					System.out.println("temp: " +temp + " " + i + " " + j + " " + k);
 	   				}
 	   			}
 	   		}
@@ -86,7 +85,7 @@ public static final int DEPTH = 10;
 	   for(int i = 0; i < list.getSize(); i++)
 	   {
 	   		System.out.println(i);
-		   if (list.getPolymino(i).getCoordinates()[0].equalsTo( new MyNode(-1,-1,-1)))
+		   if (list.getPolymino(i).isFree())
 		   {
 			   list.getPolymino(i).move(  i * 4 ,6,6 );
 			   activePolymino = list.getPolymino(i);
@@ -100,8 +99,6 @@ public static final int DEPTH = 10;
 	   }
 	   sw.start();
       updateMap();
-      
-   
       
    }
    
@@ -231,7 +228,7 @@ public static final int DEPTH = 10;
       updateView();
    }
    
-   public void move( int x, int y, int z )
+   public boolean move( int x, int y, int z )
    {
       activePolymino.move(x, y,z);
       
@@ -260,9 +257,10 @@ public static final int DEPTH = 10;
          activePolymino.move(x, y,z);
          updateMap();
       }
+      return succesful;
    }
 
-   public void rotate( int numRot )
+   public boolean rotate( int numRot )
    {
       activePolymino.rotate( numRot );
       
@@ -294,9 +292,11 @@ public static final int DEPTH = 10;
          activePolymino.rotate( numRot );
          updateMap();
       }
+      
+      return succesful;
    }
    
-   public void flip( int numFlip )
+   public boolean flip( int numFlip )
    {
       
       activePolymino.flip( numFlip );
@@ -325,6 +325,9 @@ public static final int DEPTH = 10;
          activePolymino.flip( numFlip );
          updateMap( );
       }
+      
+      
+      return succesful;
    }
 
    public boolean setActive( int index )
@@ -344,48 +347,48 @@ public static final int DEPTH = 10;
    		updateView();
    }
    
-   public void xplus()
+   public boolean xplus()
    {
-      move(  activePolymino.getMain().getX()+ 2,activePolymino.getMain().getY(),activePolymino.getMain().getZ());
+      return move(  activePolymino.getMain().getX()+ 2,activePolymino.getMain().getY(),activePolymino.getMain().getZ());
    }
    
    
-   public void xminus()
+   public boolean xminus()
    {
-      move( activePolymino.getMain().getX()-2,activePolymino.getMain().getY(),activePolymino.getMain().getZ());
+      return move( activePolymino.getMain().getX()-2,activePolymino.getMain().getY(),activePolymino.getMain().getZ());
    }
    
    
-   public void yplus()
+   public boolean yplus()
    {
-      move(activePolymino.getMain().getX(),activePolymino.getMain().getY() + 2,activePolymino.getMain().getZ());
+      return move(activePolymino.getMain().getX(),activePolymino.getMain().getY() + 2,activePolymino.getMain().getZ());
    }
    
    
-   public void yminus()
+   public boolean yminus()
    {
-      move( activePolymino.getMain().getX(),activePolymino.getMain().getY() -2,activePolymino.getMain().getZ());
-   }
-
-   public void zplus()
-   {
-      move(activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()+2);
-   }
-   
-   
-   public void zminus()
-   {
-      move( activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()-2);
+      return move( activePolymino.getMain().getX(),activePolymino.getMain().getY() -2,activePolymino.getMain().getZ());
    }
 
-	public void mvdgr()
+   public boolean zplus()
+   {
+      return move(activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()+2);
+   }
+   
+   
+   public boolean zminus()
+   {
+      return move( activePolymino.getMain().getX(),activePolymino.getMain().getY() ,activePolymino.getMain().getZ()-2);
+   }
+
+	public boolean mvdgr()
 	{
-	 	move( activePolymino.getMain().getX()+1,activePolymino.getMain().getY()+1 ,activePolymino.getMain().getZ()-1);	
+	 	return move( activePolymino.getMain().getX()+1,activePolymino.getMain().getY()+1 ,activePolymino.getMain().getZ()-1);	
 	}
 	
-	public void mvdgl()
+	public boolean mvdgl()
 	{
-	 	move( activePolymino.getMain().getX()-1,activePolymino.getMain().getY()+1 ,activePolymino.getMain().getZ()-1);
+	 	return move( activePolymino.getMain().getX()-1,activePolymino.getMain().getY()+1 ,activePolymino.getMain().getZ()-1);
 	}
 
    public void updateView()

@@ -173,6 +173,9 @@ public class Polymino
       }
    }
    
+   public int getSize(){
+   	return size;
+   }
    
    
    public void rotate( int numOfRotation ){
@@ -336,7 +339,7 @@ public class Polymino
    
    public boolean isFree( )
    {
-   		return mainNode.equalsTo( new MyNode(-1,-1,-1) );
+   		return mainNode.equalsTo( new MyNode(-1,-1,0) );
    }
    
    public boolean equalsTo( Polymino pl )

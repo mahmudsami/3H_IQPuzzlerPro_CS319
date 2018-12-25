@@ -17,6 +17,7 @@ public class Level
    private String levelName;
    int boardType;
    PolyminoList list;
+   Board solution;
    
    //Constructors
       public Level(String name, int boardType, File level) throws FileNotFoundException
@@ -68,18 +69,18 @@ public class Level
                      else // else, the word is a node for polymino
                      {
                         String[] elements = word.split(","); // split the word by comma, which gives positions of nodes.
-                        double x = Double.parseDouble(elements[0]);
-                        double y = Double.parseDouble(elements[1]);
-                        double z = Double.parseDouble(elements[2]);
+                        int x = Integer.parseInt(elements[0]);
+                        int y = Integer.parseInt(elements[1]);
+                        int z = Integer.parseInt(elements[2]);
                         
                         if (isMainNode)
                         {
-                           nodes[0] = new MyNode ((int)(x),(int)(y),(int)(z),color); // nodes[0] will represent main node
+                           nodes[0] = new MyNode (x,y,z,color); // nodes[0] will represent main node
                            isMainNode = false;
                         }
                         else //else, this is a relative node.
                         {
-                           nodes[count] = new MyNode ((int)(x*2),(int)(y*2),z,color);
+                           nodes[count] = new MyNode (x,y,z,color);
                            count++;
                         }
                         
@@ -113,7 +114,7 @@ public class Level
    public int getSolution ( )
    {
    	  int solution = 0;
-      Queue<Board> pieces = new LinkedList<>();
+      Stack<Board> pieces = new Stack<>();
       Board temp, tempNext;
       PolyminoList tempList,temp2List;
       Polymino tempPl, temp2P;
@@ -121,13 +122,17 @@ public class Level
 	  boolean[] uniques;
       
       
-      pieces.add( new Board( boardType, new PolyminoList(list) ) );
-      while( pieces.size() > 0 )
+      pieces.push( new Board( boardType, new PolyminoList(list) ) );
+      while( !pieces.empty() )
       {
       	System.out.println("sol:" + solution );
       	System.out.println("q:" + pieces.size() );
-      	temp = pieces.remove();
-      	if( temp.isFilled() ) solution++;
+      	temp = pieces.pop();
+      	if( temp.isFilled() )
+      	{
+      		 solution++;
+      		 this.solution = temp;
+      	}
       	else{
       		tempList = temp.getPolyminoList();
       		
@@ -150,7 +155,7 @@ public class Level
       						tempNext.addPolymino(i);
       						if( tempNext.stable )
       						{
-      							pieces.add(tempNext);
+      							pieces.push(tempNext);
       						}	
       					}
       				} 
@@ -160,15 +165,15 @@ public class Level
       }
       return solution;
    }
+   
+   public Board getSolBoard()
+   {
+      return solution;
+   }
    public PolyminoList getList()
    {
    	return list;
    }
    
-   public Board getSolvedBoard( )
-   {
-      //to do...
-      return null;
-   }
    
 }   

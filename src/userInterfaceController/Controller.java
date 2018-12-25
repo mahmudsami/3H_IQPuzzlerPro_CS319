@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -17,6 +17,7 @@ import javax.swing.*;
 import java.applet.AudioClip;
 import java.awt.*;
 import java.net.URL;
+import javafx.geometry.Pos;
 
 public class Controller {
 
@@ -206,13 +207,15 @@ public class Controller {
     @FXML
     private void playSinglePlayerButtonAction(ActionEvent event) throws Exception {
 
-        GridPane frame = FXMLLoader.load(getClass().getResource("PlayingGameScreen.fxml"));
-        Button button = new Button("Erdem");
-        frame.getChildren().add(button);
+        Parent root = FXMLLoader.load(getClass().getResource("PlayingGameScreen.fxml"));
 
+        
         Stage stage = new Stage();
         stage.setTitle("UNIFICATION");
-        stage.setScene(new Scene(frame, 1024, 400));
+        stage.setScene(new Scene(root, 1024, 500));
+        
+        GameView game = new GameView();
+        game.start( stage );
         stage.show();
 
         // Hide this current window (if this is what you want)

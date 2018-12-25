@@ -6,7 +6,7 @@ import level.*;
 import gameView.*;
 import userInterfaceController.*;
 
-import java.io.FileNotFoundException;
+import java.lang.Exception;
 import java.lang.Math;
 import javafx.application.Application;
 import javafx.scene.*;
@@ -95,7 +95,7 @@ public class GameView extends Application
       return all;
    }
    
-   public void start( Stage primaryStage ) throws FileNotFoundException 
+   public void start( Stage primaryStage ) throws Exception 
    {
       primaryStage.setResizable(false);
       //primaryStage.setScene( createScene() );
@@ -103,7 +103,8 @@ public class GameView extends Application
       primaryStage.setScene(scene);
       primaryStage.show();
       //System.out.println(GameView.levelX);
-      GameEngine game = new GameEngine("level1", 0 );
+      
+      GameEngine game = new GameEngine("level" + Main.level, Main.level-1 );
       //GameEngine game = new GameEngine(GameView.levelX, 0 );
       
       //GameEngine game = new GameEngine( );
@@ -147,11 +148,30 @@ public class GameView extends Application
           break;
         case TAB:
         	game.nextActive();
+          break;
+         case O:
+         try {
+         primaryStage.close(); 
+		        
+        Stage stage = new Stage();
+        stage.setTitle("UNIFICATION");
+        
+		Main main = new Main();
+		main.start(stage);
+		} catch (Exception e) { e.printStackTrace(); }
       }
       
       try {
-		if(game.isFinish()) { System.exit(0);}
-	} catch (FileNotFoundException e) {
+		if(game.isFinish()) {
+		primaryStage.close(); 
+		        
+        Stage stage = new Stage();
+        stage.setTitle("UNIFICATION");
+        
+		Main main = new Main();
+		main.start(stage);
+		}
+	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}

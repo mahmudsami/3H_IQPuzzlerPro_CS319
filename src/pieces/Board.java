@@ -91,6 +91,7 @@ public class Board{
 		return true;
 	}
 	
+	
 	private boolean addPolymino( Polymino pl )
 	{
 		if(!stable) return false;
@@ -126,4 +127,5 @@ public class Board{
 		stable = false;
 		return false;
 	}
+	
 }
