@@ -1,3 +1,5 @@
+package userInterfaceController;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.border.LineBorder;
