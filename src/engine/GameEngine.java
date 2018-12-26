@@ -43,11 +43,14 @@ public static final int DEPTH = 10;
 	   level = new Level (levelName, boardType, file);
 	   int numOfS = level.getSolution();
 	   System.out.println("level solutions:" + numOfS);
+	   if( numOfS > 0 )
+	   {
 	   Alert numOfSolution = new Alert(AlertType.INFORMATION);
        numOfSolution.setTitle("Solution Alert!");
        numOfSolution.setHeaderText(null);
        numOfSolution.setContentText("There are (is) " + numOfS + " solution");
        numOfSolution.showAndWait();
+	   }
 	   
 	   this.list = level.getList();
 	   map = new MyNode[HEIGHT * WIDTH * DEPTH];
