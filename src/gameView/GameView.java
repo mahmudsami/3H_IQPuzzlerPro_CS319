@@ -85,9 +85,9 @@ public class GameView extends Application
       
       PerspectiveCamera camera = new PerspectiveCamera(true);
       camera.getTransforms().addAll (
-                                     new Rotate(60, Rotate.X_AXIS),
+                                     new Rotate(45, Rotate.X_AXIS),
                                      //new Rotate(-20, Rotate.X_AXIS));
-                                     new Translate(GameEngine.HEIGHT/2  ,GameEngine.WIDTH/3  , -40));
+                                     new Translate(GameEngine.HEIGHT/2  ,GameEngine.WIDTH/3  , -60));
       
       camera.setFieldOfView(35);
       

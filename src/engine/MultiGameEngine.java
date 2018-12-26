@@ -1,18 +1,18 @@
 package engine;
 import pieces.*;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.lang.Exception;
 import java.util.Optional;
-class MultiGameEngine extends GameEngine{
+public class MultiGameEngine extends GameEngine{
 
 	Player[] players;
 	Board solution;
 	boolean moved;
 	boolean firstTurn;
+	MyNode oldMain;
 	
 	
-	
-	public MultiGameEngine( String levelName, int boardType, String p1, String p2  )	  throws FileNotFoundException
+	public MultiGameEngine( String levelName, int boardType, String p1, String p2  ) throws Exception
 	{
 		super(levelName, boardType);
 		if( boardType != 0 ) return;
@@ -24,7 +24,8 @@ class MultiGameEngine extends GameEngine{
 		firstTurn = true;
 		moved = false;
 		solution = level.getSolBoard();
-		
+      	solution.print();
+		oldMain = activePolymino.getMain();
 		sw.turn( 0,players[0] );
 	}
 	
@@ -82,6 +83,12 @@ class MultiGameEngine extends GameEngine{
 		}
 	}
 	
+	public void nextActive()
+	{
+		super.nextActive();
+		oldMain = new MyNode(activePolymino.getMain());
+	}
+	
 	public void turned()
 	{
 	  int remain = 0;
@@ -90,8 +97,19 @@ class MultiGameEngine extends GameEngine{
          if( n.getColor() == -2 ) remain++;
       }
       double scoreFactor = remain * 1.0 / activePolymino.getSize();
-      //TODO check it is in Solution
       boolean inSolution = false;
+      for( int i = 0; i < 12 ; i++)
+      {
+      	if( activePolymino.sameWith(solution.getPolyminoList().getPolymino(i)) && activePolymino.getMain().equalsTo(solution.getPolyminoList().getPolymino(i).getMain() ) )
+      		inSolution = true;
+      }
+      if( !inSolution )
+      {
+      	activePolymino.move(oldMain.getX(),oldMain.getY(), oldMain.getZ() );
+      }else
+      {
+      	activePolymino.setFixed();
+      }
       
 		if( firstTurn )
 		{
@@ -113,5 +131,9 @@ class MultiGameEngine extends GameEngine{
 				firstTurn = false;
 			}
 		}
+		nextActive();
+	    updateView();
+	    
+		moved = false;
 	}
 }

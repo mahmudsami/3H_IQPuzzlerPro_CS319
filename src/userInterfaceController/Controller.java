@@ -1,6 +1,6 @@
 package userInterfaceController;
 
-import gameView.GameView;
+import gameView.*;
 import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
