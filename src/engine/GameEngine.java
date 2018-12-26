@@ -41,7 +41,14 @@ public static final int DEPTH = 10;
 	   sw = new Stopwatch();
 	   File file = new File("levels.txt");
 	   level = new Level (levelName, boardType, file);
-	   System.out.println("level solutions:" + level.getSolution());
+	   int numOfS = level.getSolution();
+	   System.out.println("level solutions:" + numOfS);
+	   Alert numOfSolution = new Alert(AlertType.INFORMATION);
+       numOfSolution.setTitle("Solution Alert!");
+       numOfSolution.setHeaderText(null);
+       numOfSolution.setContentText("There are (is) " + numOfS + " solution");
+       numOfSolution.showAndWait();
+	   
 	   this.list = level.getList();
 	   map = new MyNode[HEIGHT * WIDTH * DEPTH];
 	   for( int i = 0; i < HEIGHT; i++)
